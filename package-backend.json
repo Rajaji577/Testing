@@ -6,8 +6,8 @@
   "description": "ANIME INDIA Print-on-Demand Backend API",
   "main": "server/index.ts",
   "scripts": {
-    "start": "tsx server/index.ts",
-    "build": "echo 'No build step required for backend'",
+    "start": "node dist/index.js",
+    "build": "tsc",
     "dev": "tsx watch server/index.ts",
     "check": "tsc --noEmit",
     "seed:users": "node server/scripts/seedUsers.js"
