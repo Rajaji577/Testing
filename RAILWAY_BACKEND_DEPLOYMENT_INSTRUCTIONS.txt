@@ -1,0 +1,112 @@
+🚂 ANIME INDIA - RAILWAY BACKEND DEPLOYMENT PACKAGE
+=====================================================
+
+📋 WHAT'S INCLUDED IN THIS ZIP:
+- Complete Node.js/Express backend code
+- All API routes and controllers
+- Database models and schemas
+- Payment gateway integration (PhonePe)
+- Email configuration
+- Authentication middleware
+- Railway deployment configuration files
+
+🚀 RAILWAY DEPLOYMENT STEPS:
+1. Go to https://railway.app
+2. Sign up/Login with GitHub
+3. Click "New Project" → "Deploy from GitHub repo"
+4. Connect your repository OR upload this zip file
+5. Set environment variables (see below)
+6. Deploy automatically
+
+🔧 REQUIRED ENVIRONMENT VARIABLES:
+Set these in Railway Dashboard → Variables:
+
+CORE APPLICATION:
+NODE_ENV=production
+PORT=5000
+
+DATABASE (MongoDB Atlas):
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/anime_india?retryWrites=true&w=majority
+
+JWT AUTHENTICATION:
+JWT_SECRET=your-super-secure-jwt-secret-key-here
+JWT_EXPIRE=1h
+JWT_REFRESH_SECRET=your-super-secure-refresh-secret-key-here
+JWT_REFRESH_EXPIRE=7d
+
+EMAIL CONFIGURATION:
+SMTP_USER=your-email@domain.com
+SMTP_PASSWORD=your-email-password
+FROM_CONTACT_EMAIL=your-email@domain.com
+SUPPORT_EMAIL=support@yourdomain.com
+
+ADMIN CONFIGURATION:
+ADMIN_EMAILS=admin@yourdomain.com,admin2@yourdomain.com
+ADMIN_PHONES=+1234567890,+0987654321
+
+PHONEPE PAYMENT GATEWAY:
+PHONEPE_CLIENT_ID=your-phonepe-client-id
+PHONEPE_CLIENT_SECRET=your-phonepe-client-secret
+PHONEPE_CLIENT_VERSION=2
+PHONEPE_ENVIRONMENT=SANDBOX
+PHONEPE_WEBHOOK_URL=https://your-railway-app.railway.app/api/payment/webhook
+PHONEPE_WEBHOOK_USERNAME=webhook-username
+PHONEPE_WEBHOOK_PASSWORD=webhook-password
+
+GOOGLE OAUTH (Optional):
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+
+URLS (Update with your actual domains):
+FRONTEND_URL=https://your-hostinger-domain.com
+BACKEND_URL=https://your-railway-app.railway.app
+
+TWILIO SMS (Optional):
+TWILIO_SID=your-twilio-sid
+TWILIO_TOKEN=your-twilio-token
+TWILIO_FROM_NUMBER=+1234567890
+
+📁 BACKEND STRUCTURE:
+server/
+├── index.ts (main server file)
+├── routes/ (API routes)
+├── models/ (MongoDB models)
+├── middleware/ (Express middleware)
+├── config/ (configuration files)
+├── controllers/ (route controllers)
+├── services/ (business logic)
+└── scripts/ (database scripts)
+
+🔗 API ENDPOINTS AVAILABLE:
+GET  /api/health - Health check
+GET  /api/products - Get all products
+POST /api/products - Create product (admin)
+GET  /api/products/:id - Get single product
+POST /api/upload - Upload images
+POST /api/auth/login - User login
+POST /api/auth/register - User registration
+POST /api/orders - Create order
+POST /api/payment/initiate - Initiate payment
+GET  /api/admin/stats - Admin statistics
+
+⚠️ IMPORTANT NOTES:
+- Use MongoDB Atlas for database (free tier available)
+- Railway provides automatic HTTPS
+- File uploads are stored temporarily (consider AWS S3 for production)
+- CORS is configured to allow all origins
+- SSL certificate is automatic
+
+🎯 TESTING AFTER DEPLOYMENT:
+1. Check Railway logs for successful startup
+2. Test: https://your-app.railway.app/api/health
+3. Verify database connection
+4. Test payment gateway integration
+5. Update frontend API URLs
+
+📞 SUPPORT:
+- Check Railway deployment logs
+- Verify all environment variables are set
+- Test API endpoints with Postman/curl
+- Check MongoDB Atlas connection
+
+🎌 Your Anime India backend is ready for Railway deployment!
